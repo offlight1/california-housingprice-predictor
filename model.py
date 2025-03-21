@@ -1,10 +1,5 @@
 import tensorflow as tf
 import pandas as pd
-import numpy as np
-import os
-import certifi
-import matplotlib.pyplot as plt
-import seaborn as sns
 import sklearn
 from sklearn.model_selection import train_test_split
 
@@ -13,11 +8,9 @@ data = pd.read_csv("housing.csv")
 data.pop('ocean_proximity')
 data = data.dropna()
 
-# Assuming 'target_column' is the column you want to predict
 features = data
 labels = data['median_house_value']
 
-# Split the data: 80% training and 20% testing
 train_features, test_features, train_labels, test_labels = train_test_split(features, labels, test_size=0.2, random_state=42)
 
 scaler = sklearn.preprocessing.MinMaxScaler()
